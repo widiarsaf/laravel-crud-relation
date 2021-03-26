@@ -15,5 +15,5 @@ class Student extends Model
        'Name',
        'Class',
        'Major'
-   ]
+   ];
 }
