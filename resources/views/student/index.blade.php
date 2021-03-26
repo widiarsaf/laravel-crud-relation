@@ -43,5 +43,9 @@
         </td>
     </tr>
     @endforeach
+
 </table>
+<div class="d-flex mt-3">
+    {{ $student->links('pagination::bootstrap-4') }}
+</div>
 @endsection

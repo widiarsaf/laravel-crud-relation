@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection\paginate;
 use DB;
 
 class StudentController extends Controller
@@ -12,8 +13,10 @@ class StudentController extends Controller
     public function index()
     {
         // the wloquent to displays data
-        $student = DB::table('student')->get(); // get() untuk mengambil semua data
+        $student = DB::table('student')
+        ->paginate(3);
         return view('student.index', compact('student'));
+
     }
 
     public function create()
