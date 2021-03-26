@@ -2,13 +2,28 @@
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">
-        <div class="pull-left mt-2">
+        <div class="pull-left mt-3">
             <h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
         </div>
-        <div class="float-right my-2">
-            <a class="btn btn-success" href="{{ route('student.create') }}"> Input Student Data</a>
+        <div class="mt-4 mb-2">
+            <div class="row">
+                <div class="col my-2">
+                    <form class="form-inline" {{ route('student.index') }}>
+                        <input class="form-control mr-sm-2" style="width: 400px" type="search" placeholder="Search"
+                            aria-label="search" name="search" id="search">
+                        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="col my-2">
+                    <div class="float-right">
+                        <a class=" btn btn-success" href="{{ route('student.create') }}"> Input Student Data</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
+
 </div>
 @if ($message = Session::get('success'))<div class="alert alert-success">
     <p>{{ $message }}</p>
@@ -24,6 +39,7 @@
         <th>Date of Birth</th>
         <th width="280px">Action</th>
     </tr>
+    @if (count($student) > 0)
     @foreach ($student as $mhs)
     <tr>
         <td>{{ $mhs ->nim }}</td>
@@ -43,6 +59,9 @@
         </td>
     </tr>
     @endforeach
+    @else
+    <td colspan="7"><b class="text-danger">student not found</b></td>
+    @endif
 
 </table>
 <div class="d-flex mt-3">

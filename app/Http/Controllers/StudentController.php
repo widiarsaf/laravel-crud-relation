@@ -12,9 +12,17 @@ class StudentController extends Controller
 
     public function index()
     {
-        // the wloquent to displays data
+
+        $search = request()->query('search');
+        if($search){
         $student = DB::table('student')
-        ->paginate(3);
+                ->where('name','like',"%".$search."%")
+                ->paginate();
+        }
+        else{
+        $student = DB::table('student')
+                ->paginate(3);
+        }
         return view('student.index', compact('student'));
 
     }
@@ -87,6 +95,17 @@ class StudentController extends Controller
         Student::find($Nim)->delete();
         return redirect()->route('student.index')
             ->with('success', 'Student Succesfully Deleted');
+    }
+    public function search(Request $request)
+    {
+        // catching data to search
+        $search = $request->search;
+
+        // Searching data
+        $Student = DB::table('student')
+            ->where('name','like',"%".$search."%")
+            ->paginate();
+        return view('student.index', compact('Student'));
     }
 }
 
