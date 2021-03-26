@@ -14,6 +14,8 @@ class Student extends Model
        'Nim',
        'Name',
        'Class',
-       'Major'
+       'Major',
+       'Address',
+       'Date_Of_Birth'
    ];
 }

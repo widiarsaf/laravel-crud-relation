@@ -30,6 +30,8 @@ class StudentController extends Controller
             'Name'=>'required',
             'Class'=>'required',
             'Major'=>'required',
+            'Address'=>'required',
+            'Date_Of_Birth'=>'required'
         ]);
 
         // eloquent function to add data
@@ -63,7 +65,9 @@ class StudentController extends Controller
             'Nim' => 'required',
             'Name' => 'required',
             'Class' => 'required',
-            'Major' => 'required'
+            'Major' => 'required',
+            'Address'=>'required',
+            'Date_Of_Birth'=>'required'
         ]);
 
         // Eloquent function to update the data
