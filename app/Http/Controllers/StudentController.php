@@ -54,6 +54,7 @@ class StudentController extends Controller
         $student->major = $request->get('Major');
         $student->address = $request->get('Address');
         $student->date_of_birth = $request->get('Date_Of_Birth');
+        $student->save();
 
         $class = new ClassModel;
         $class->id = $request->get('Class');
