@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use App\Models\ClassModel;
+use App\Models\CourseModel;
+use App\Models\CourseStudent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection\paginate;
+use Illuminate\Support\Collection\collapse;
 use DB;
 
 class StudentController extends Controller
@@ -55,6 +58,7 @@ class StudentController extends Controller
         $student->address = $request->get('Address');
         $student->date_of_birth = $request->get('Date_Of_Birth');
         $student->save();
+
 
         $class = new ClassModel;
         $class->id = $request->get('Class');
@@ -130,6 +134,15 @@ class StudentController extends Controller
         Student::find($Nim)->delete();
         return redirect()->route('student.index')
             ->with('success', 'Student Succesfully Deleted');
+    }
+    public function showCourse($Nim){
+        $id = Student::where('nim', $Nim)->value('id_student');
+        $Student = Student::with('class', 'course')
+            ->where('id_student', $id)
+            ->first();
+        dd($Student);
+
+        return view('student.detailCourse', ['Student' => $Student]);
     }
 }
 

@@ -12,6 +12,6 @@ class ClassModel extends Model
     protected $table = 'class'; // define that this model is relate to class table
 
     public function student() {
-        return $this->hasMany(Student::class);
+        return $this->hasMay(Student::class);
     }
 }

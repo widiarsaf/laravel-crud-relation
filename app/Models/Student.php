@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\Mahasiswa as Authentication;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ClassModel;
+use App\Models\CourseModel;
 
 class Student extends Model
 {
@@ -24,5 +25,9 @@ class Student extends Model
 
    public function class(){
        return $this->belongsTo(ClassModel::class);
+   }
+
+   public function course(){
+       return $this->belongsToMany(CourseModel::class, 'course_student','course_id', 'student_id')->withPivot('score');
    }
 }
