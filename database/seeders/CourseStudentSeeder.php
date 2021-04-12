@@ -16,26 +16,27 @@ class CourseStudentSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('course_student')->insert([
             [
-                'student_id' => Student::min('id_student'),
-                'course_id' => CourseModel::min('id'),
+                'student_id' => 1941720099, // you can change this data
+                'course_id' => 1,
                 'score' => 'A',
             ],
             [
-                'student_id' => Student::min('id_student'),
-                'course_id' => CourseModel::min('id'),
-                'score' => 'C',
+                'student_id' => 1941720099,
+                'course_id' => 2,
+                'score' => 'A',
             ],
             [
-                'student_id' => Student::min('id_student'),
-                'course_id' => CourseModel::min('id'),
-                'score' => 'E',
+                'student_id' => 1941720099,
+                'course_id' => 3,
+                'score' => 'B',
             ],
             [
-                'student_id' => Student::min('id_student'),
-                'course_id' => CourseModel::min('id'),
-                'score' => 'D',
+                'student_id' => 1941720099,
+                'course_id' => 4,
+                'score' => 'C+',
             ],
 
         ]);

@@ -57,8 +57,6 @@ class StudentController extends Controller
         $student->major = $request->get('Major');
         $student->address = $request->get('Address');
         $student->date_of_birth = $request->get('Date_Of_Birth');
-        $student->save();
-
 
         $class = new ClassModel;
         $class->id = $request->get('Class');
@@ -138,9 +136,9 @@ class StudentController extends Controller
     public function showCourse($Nim){
         $id = Student::where('nim', $Nim)->value('id_student');
         $Student = Student::with('class', 'course')
-            ->where('id_student', $id)
+            ->where('nim', $Nim)
             ->first();
-        dd($Student);
+        // dd($Student->course);
 
         return view('student.detailCourse', ['Student' => $Student]);
     }

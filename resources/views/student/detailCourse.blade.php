@@ -1,19 +1,24 @@
 @extends('student.layout')
 @section('content')
 <div class="container mt-5">
+    <div class="pull-left mt-3">
+        <center>
+            <h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
+        </center>
+    </div>
     <div class="row justify-content-center align-items-center">
-        <div class="card" style="width: 80rem;">
-            <div class="card-header">
-                Student Detail
-            </div>
-            <div class="card-body">
+        <div style="width: 80rem;">
+            <center>
+                <h1>KHS</h1>
+            </center>
+            <div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><b>Nim: </b>{{$Student->nim}}</li>
-                    <li class="list-group-item"><b>Name: </b>{{$Student->name}}</li>
-                    <li class="list-group-item"><b>Class: </b>{{$Student->class->class_name}}</li>
+                    <p><b>Nim: </b>{{$Student->nim}}</p>
+                    <p><b>Name: </b>{{$Student->name}}</p>
+                    <p><b>Class: </b>{{$Student->class->class_name}}</p>
                 </ul>
             </div>
-            <table>
+            <table class="table table-bordered">
                 <tr>
                     <th>Course Name</th>
                     <th>Credit</th>

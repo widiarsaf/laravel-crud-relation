@@ -13,10 +13,10 @@ class CreateCourseStudentTable extends Migration
      */
     public function up()
     {
-        Schema::create('course_student', function (Blueprint $table) {
+         Schema::create('course_student', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('student_id')->nullable();
-            $table->foreign('student_id')->references('id_student')->on('student');
+            $table->string('student_id')->nullable();
+            $table->foreign('student_id')->references('nim')->on('student');
             $table->unsignedBigInteger('course_id')->nullable();
             $table->foreign('course_id')->references('id')->on('course');
             $table->string('score',2);
@@ -31,6 +31,6 @@ class CreateCourseStudentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('failed_jobs');
+        Schema::dropIfExists('course_student');
     }
 }
